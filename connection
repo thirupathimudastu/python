@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep 26 19:29:37 2022
+
+@author: TMudastu
+"""
+
+import pyodbc
+import pandas as pd
+import datetime as dt
+import numpy as np
+import time
+
+conn = pyodbc.connect('Driver={SQL Server Native Client 11.0};'
+                      'Server=systechtraining.database.windows.net;'
+                      'Database=Bootcamp;'
+                      'UID=B32022_TMudastu;'
+                      'PWD=n2g9JxqKT3pYr;'
+                      'Trusted_Connection=no;')
+
+m1=pd.read_sql('''select * from [DA_C2_Src].[Lu_Customer]''',conn)
+m2=pd.read_sql('''select * from [DA_C2_Src].[Lu_Site]''',conn)
+
+custdf=m1.merge(m2,how='left',on='Site_Id')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
